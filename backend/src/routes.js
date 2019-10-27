@@ -7,6 +7,7 @@ import FileController from './app/controllers/fileController';
 import providerController from './app/controllers/providerController';
 import appointmenController from './app/controllers/appointmenController';
 import scheduleController from './app/controllers/scheduleController';
+import availableController from './app/controllers/availableController';
 import notificationController from './app/controllers/notificationController';
 import authController from './app/middlewares/auth';
 
@@ -24,6 +25,7 @@ routes.use(authController);
 routes.put('/users', UserController.update);
 
 routes.get('/providers', providerController.index);
+routes.get('/providers/:providerId/available', availableController.index);
 
 routes.post('/appointmen', appointmenController.store);
 routes.get('/appointmen', appointmenController.index);
