@@ -9,7 +9,7 @@ class UserController {
       email: Yup.string()
         .email()
         .required(),
-      Password: Yup.string()
+      password: Yup.string()
         .min(6)
         .required(),
     });
@@ -19,7 +19,6 @@ class UserController {
     }
 
     const userExixte = await User.findOne({ where: { email: req.body.email } });
-
     if (userExixte) {
       return res.status(400).json({ error: 'User already exists' });
     }
